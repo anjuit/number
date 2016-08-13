@@ -11,7 +11,7 @@ System.out.println("positive");
 }
  else if(number<0)
 {
-System.out.println("positive");
+System.out.println("negative");
 }
 else
 {
