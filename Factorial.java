@@ -8,7 +8,7 @@ System.out.println("Enter an integer to calculate it's factorial");
 Scanner in = new Scanner(System.in);
 n = in.nextInt();
 if ( n < 0 )
-System.out.println("Number should be non-negative.");
+System.out.println("Number should be not negative.");
 else
 {
 for ( c = 1 ; c <= n ; c++ )
