@@ -1,0 +1,143 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Frame calculator</title>
+<style>
+body{
+   background-size:cover;
+   }
+   #search {
+    width: 20em;  height: 3em;
+}
+ .style1 {font-size: large}
+.style2 {
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+function fcalc() 
+{
+        var name1 = document.getElementById('name').value;
+	     var name2 = document.getElementById('name2').value;
+		name1 = name1.trim();
+		name2 = name2.trim();
+		name1 = name1.toLowerCase();
+		name2 = name2.toLowerCase();
+		var name1_split = name1.split(" ");
+	   var name2_split = name2.split(" ");
+		name1="";
+		name2="";
+		for(int i=0;i<name1_split.length;i++)
+		{
+		name1 = name1+name1_split[i];
+		}
+		for(int i=0;i<name2_split.length;i++)
+		{
+		name2 = name2+name2_split[i];
+		}
+		int length = name1.length()+name2.length();
+		boolean name_check[] = new boolean[name2.length()];
+		for(int i=0;i<name2.length();i++)
+		{
+		name_check[i]=false;
+		}
+		for(int i=0;i<name1.length();i++)
+		{
+		for(int j=0;j<name2.length();j++)
+		{
+		if((name_check[j]==false) && (name1.charAt(i) == name2.charAt(j)))
+		{
+		name_check[j]=true;
+		length = length-2;
+		break;
+		}
+		}
+		}
+		boolean flames_check[] = new boolean[6];
+		for(int i=0;i<6;i++)
+		{
+		flames_check[i] = true;
+		}
+		int count = 6;
+		int k=1,deleted_letters=0;
+		int j;
+		for(j=0;j<=count;j++)
+		{
+		if(k <= length)
+		{
+		if(j == count)
+		{
+		j=0;
+		}
+		if(flames_check[j] == true)
+		{
+		k = k+1;
+		}
+		}
+		if((k-1)==length)
+		{
+		deleted_letters = deleted_letters+1;
+		flames_check[j] = false;
+		k = 1;
+		}
+		if(deleted_letters==6)
+		{
+		if(j==0)
+		{
+		alert(name1.toUpperCase()+name2.toUpperCase()+" are good FRIENDS");
+		}
+		else if(j==1)
+		{
+		alert(name1.toUpperCase()+name2.toUpperCase()+" are LOVERS");
+		}
+		else if(j==2)
+		{
+		alert(name1.toUpperCase()+name2.toUpperCase()+" have alot of AFFECTION");
+		}
+		else if(j==3)
+		{
+		alert(name1.toUpperCase()+name2.toUpperCase()+" are MARRIED");
+		}
+		else if(j==4)
+		{
+		alert(name1.toUpperCase()+name2.toUpperCase()+" are ENEMIES");
+		}
+		else if(j==5)
+		{
+		alert(name1.toUpperCase()+name2.toUpperCase()+" are SIBLINGS");
+		}
+		break;
+		}
+		}
+}
+</script>
+</head>
+<center>
+<form id="form1" name="form1" method="post" action="">
+
+<p>&nbsp;  </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="style1" style="color:#FFFFFF"><span class="style2"style="color:#FFFFFF;font-size:50px;">Yours Name:</span>&nbsp;&nbsp; 
+   <input name="name" type="text" class="style2" size="30" height="60" />
+</p>
+<p class="style1" style="color:#FFFFFF"><span class="style1" style="color:#FFFFFF"><span class="style2"style="color:#FFFFFF;font-size:50px;">Crush Name:</span>&nbsp;&nbsp;
+    <input name="name2" type="text" class="style2" size="30" height="60" />
+</span></p>
+<p class="style1" style="color:#FFFFFF">
+  <label></label>
+  <span class="style1" style="color:#FFFFFF"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span><span class="style1" style="color:#FFFFFF"><span class="style1" style="color:#FFFFFF">
+<input name="FLAMES" id="search" type="submit" class="style2" value="FLAMES" onclick="fcalc()"/>
+</span></span></p>
+</form>
+</center>
+</body>
+</html>
